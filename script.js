@@ -1,6 +1,6 @@
 (function () {
-  var COUNTDOWN_MINUTES = 19;
-  var left = COUNTDOWN_MINUTES * 60;
+  var COUNTDOWN_SECONDS = 120;
+  var left = COUNTDOWN_SECONDS;
   var mmEl = document.getElementById('ng-mm');
   var ssEl = document.getElementById('ng-ss');
 
@@ -14,7 +14,7 @@
   render();
   setInterval(function () {
     // loops back to the full duration at zero, matching the design canvas preview
-    left = left > 0 ? left - 1 : COUNTDOWN_MINUTES * 60;
+    left = left > 0 ? left - 1 : COUNTDOWN_SECONDS;
     render();
   }, 1000);
 })();
