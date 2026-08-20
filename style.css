@@ -1,9 +1,44 @@
+/* Self-hosted subsets. Weight axes are clipped to exactly what this page uses
+   (Oswald 600-700, Manrope 600-800); the glyph set covers the uppercase forms
+   too, since text-transform:uppercase means the rendered glyphs differ from
+   the source text. */
+@font-face {
+  font-family: Oswald;
+  src: url(uploads/fonts/oswald-subset.woff2) format('woff2-variations');
+  font-weight: 600 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Manrope;
+  src: url(uploads/fonts/manrope-subset.woff2) format('woff2-variations');
+  font-weight: 600 800;
+  font-display: swap;
+}
+/* Metric-matched fallbacks: overrides are computed from each subset's own
+   metrics so the swap doesn't shift layout. */
+@font-face {
+  font-family: 'Oswald Fallback';
+  src: local('Helvetica Neue Condensed'), local('Arial Narrow'), local('Helvetica'), local('Arial');
+  size-adjust: 111.46%;
+  ascent-override: 107.03%;
+  descent-override: 25.93%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Manrope Fallback';
+  src: local('Helvetica Neue'), local('Arial');
+  size-adjust: 104.14%;
+  ascent-override: 102.37%;
+  descent-override: 28.81%;
+  line-gap-override: 0%;
+}
+
 *, *::before, *::after { box-sizing: border-box; }
 
 body {
   margin: 0;
   background: #0B111B;
-  font-family: Manrope, sans-serif;
+  font-family: Manrope, 'Manrope Fallback', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -44,11 +79,11 @@ a:hover { color: #FF9455; }
   border-radius: 11px;
   background: linear-gradient(160deg, #F07A32, #D2551A);
   display: flex; align-items: center; justify-content: center;
-  font-family: Oswald, sans-serif;
+  font-family: Oswald, 'Oswald Fallback', sans-serif;
   font-weight: 700; font-size: 16px; color: #fff; letter-spacing: .5px;
 }
 .ng-brand-text { display: flex; flex-direction: column; gap: 1px; }
-.ng-brand-name { font-family: Oswald, sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 1.6px; color: #fff; }
+.ng-brand-name { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 1.6px; color: #fff; }
 .ng-brand-sub { font-size: 9.5px; font-weight: 600; letter-spacing: 1.4px; color: #7B8AA0; text-transform: uppercase; }
 .ng-live {
   display: flex; align-items: center; gap: 7px;
@@ -66,7 +101,7 @@ a:hover { color: #FF9455; }
 }
 .ng-headline {
   margin: 0;
-  font-family: Oswald, sans-serif;
+  font-family: Oswald, 'Oswald Fallback', sans-serif;
   font-weight: 700; font-size: 32px; line-height: 1.04;
   color: #fff; text-transform: uppercase;
   text-wrap: balance;
@@ -118,9 +153,9 @@ a:hover { color: #FF9455; }
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,.16);
 }
-.ng-hero-pill-text { font-family: Oswald, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1.1px; color: #fff; }
+.ng-hero-pill-text { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1.1px; color: #fff; }
 .ng-hero-pill-sep { width: 1px; height: 13px; background: rgba(255,255,255,.22); }
-.ng-hero-pill-accent { font-family: Oswald, sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1.1px; color: #F5A16B; }
+.ng-hero-pill-accent { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 1.1px; color: #F5A16B; }
 
 /* body */
 .ng-body {
@@ -131,7 +166,7 @@ a:hover { color: #FF9455; }
 
 .ng-stats { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
 .ng-stat { padding: 14px 12px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); }
-.ng-stat-value { font-family: Oswald, sans-serif; font-weight: 600; font-size: 20px; color: #fff; }
+.ng-stat-value { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 600; font-size: 20px; color: #fff; }
 .ng-stat-label { margin-top: 4px; font-size: 10.5px; font-weight: 700; letter-spacing: 1.1px; color: #7B8AA0; text-transform: uppercase; }
 
 .ng-promo {
@@ -141,7 +176,7 @@ a:hover { color: #FF9455; }
   border: 1px dashed rgba(240,122,50,.45);
 }
 .ng-promo-lead { font-size: 12.5px; font-weight: 700; color: #DCE4EF; }
-.ng-promo-count { font-family: Oswald, sans-serif; font-weight: 700; font-size: 16px; color: #F07A32; }
+.ng-promo-count { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 700; font-size: 16px; color: #F07A32; }
 
 .ng-cta-bar {
   position: fixed; left: 50%; bottom: 0; transform: translateX(-50%);
@@ -155,14 +190,14 @@ a:hover { color: #FF9455; }
   background: linear-gradient(100deg, #FF8E3D, #E4600F);
   animation: ngPulse 2.6s ease-in-out infinite;
 }
-.ng-cta-label { font-family: Oswald, sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .8px; color: #fff; text-transform: uppercase; }
+.ng-cta-label { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: .8px; color: #fff; text-transform: uppercase; }
 
 .ng-countdown { width: 100%; display: flex; flex-direction: column; gap: 11px; margin-top: 6px; }
 .ng-countdown-label { font-size: 11px; font-weight: 800; letter-spacing: 2px; color: #8C9AAF; text-transform: uppercase; }
 .ng-countdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
 .ng-countdown-card { padding: 16px 10px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.09); }
 .ng-countdown-card--accent { background: rgba(240,122,50,.12); border: 1px solid rgba(240,122,50,.42); }
-.ng-countdown-value { font-family: Oswald, sans-serif; font-weight: 700; font-size: 36px; line-height: 1; color: #fff; }
+.ng-countdown-value { font-family: Oswald, 'Oswald Fallback', sans-serif; font-weight: 700; font-size: 36px; line-height: 1; color: #fff; }
 .ng-countdown-value--accent { color: #F07A32; }
 .ng-countdown-unit { margin-top: 6px; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; color: #7B8AA0; }
 .ng-countdown-unit--accent { color: #C2793F; }
