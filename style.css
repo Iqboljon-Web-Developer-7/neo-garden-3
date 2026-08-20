@@ -64,13 +64,6 @@ a:hover { color: #FF9455; }
   display: flex; flex-direction: column; align-items: center; gap: 14px;
   text-align: center;
 }
-.ng-eyebrow {
-  display: inline-flex; align-items: center; gap: 9px;
-  padding: 8px 15px; border-radius: 999px;
-  background: rgba(240,122,50,.14);
-  border: 1px solid rgba(240,122,50,.4);
-}
-.ng-eyebrow span { font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px; color: #F5A16B; text-transform: uppercase; }
 .ng-headline {
   margin: 0;
   font-family: Oswald, sans-serif;
@@ -174,8 +167,3 @@ a:hover { color: #FF9455; }
 .ng-countdown-unit { margin-top: 6px; font-size: 10px; font-weight: 800; letter-spacing: 1.6px; color: #7B8AA0; }
 .ng-countdown-unit--accent { color: #C2793F; }
 
-.ng-footer {
-  width: 100%; margin-top: 8px; padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,.08);
-  font-size: 11px; font-weight: 600; letter-spacing: .6px; color: #617087;
-}
